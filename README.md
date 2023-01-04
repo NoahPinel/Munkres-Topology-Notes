@@ -1,2 +1,2 @@
 # Munkres Topology Notes
- Notes I take while reading Munkres Topology book
+Notes I take while reading Munkres Topology book

@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{amsmath,amsthm}
+\usepackage[english]{babel}
+\usepackage{amsfonts}
+\usepackage{thmtools}
+\usepackage{fancyhdr}
+\declaretheorem{theorem}
+\usepackage{rsfso}
+\declaretheorem[sibling=theorem]{Definition}
+\graphicspath{{./IMG/}}
+
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\usepackage{color} 
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
+
+%-------------- HEADER -- FOOTER --------------------------------------------------------
+% Assignment // project etc
+\newcommand{\hmwkTitle}{Notes on Munkres Topology}
+\newcommand{\hmwkAuthorName}{Noah Pinel}
+
+%
+% Title Page
+%
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkTitle}}\\
+    \author{Created by \hmwkAuthorName}
+    \date{}
+    \vspace{3in}
+}
+
+%--- LAZY -----------------------------------------------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ps}{\{p_n\}}
+
+%---------------------HEADER FOOTER-----------------------------------------------------------
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\slshape\nouppercase{\leftmark}}
+\fancyfoot{} 
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
+%--------------------------------------------------------------------------
+\begin{document}
+\maketitle % Print the title
+%------ Hide pg # from title page -----------------
+\thispagestyle{empty}
+\newpage
+
+
+\fancyfoot[R]{\thepage}
+%----------------TABLE OF CONTENTS------------------------------------------
+\tableofcontents
+\invisiblesection{Table of contents}
+\newpage
+%----------------ABSTRACT---------------------------------------------------
+\section{Abstract}
+\begin{abstract}
+    In a valiant effort to stop my Topology knowledge from dissipating,
+    I have decided to self-study Munkres until my next Analysis course, which will be in about a years time.
+    I know that if I don't keep my math skills sharp, they'll end up as flat as a non-differentiable function. 
+    Hopefully this self-study will help me retain my math skills like a homeomorphism 
+    preserves topological properties ;)
+
+
+
+\end{abstract}
+\newpage
+%----------------CH 2---------------------------------------------------------
+\section{Topological Spaces}
+\newpage
+\section{Basis for a Topology}
+\newpage
+
+\section{The Order Topology}
+\newpage
+
+\section{The Product Topology on \texorpdfstring{$X\times Y$}{TEXT}}
+\newpage
+
+\section{The Subspace Topology}
+\newpage
+
+\section{Closed Sets and Limit Points}
+\newpage
+
+\section{Continuous Functions}
+\newpage
+
+\section{The Product Topology}
+\newpage
+
+\section{The Metric Topology}
+\newpage
+
+\section{The Quotient Topology}
+\newpage
+
+\section{Topological Groups} 
+
+
+
+\end{document}
