@@ -11,9 +11,26 @@
 \usepackage{fancyhdr}
 \declaretheorem{theorem}
 \usepackage{rsfso}
-\declaretheorem[sibling=theorem]{Definition}
+\declaretheorem[sibling=theorem]{Def}
 \graphicspath{{./IMG/}}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
 
+% ----------------------- THEO, LEMMA, DEF -----------------------
+\newtcbtheorem[number within=section]{myDef}{Def}%
+{colback=blue!5,colframe=blue!35!black,fonttitle=\bfseries}{df}
+
+\newtcbtheorem[number within=section]{myTheo}{Theorem}%
+{colback=cyan!5,colframe=cyan!35!black,fonttitle=\bfseries}{th}
+
+\newtcbtheorem[number within=section]{myLem}{Lemma}%
+{colback=green!5,colframe=green!35!black,fonttitle=\bfseries}{lm}
+
+\newtcbtheorem[number within=section]{myExa}{Example}%
+{colback=black!5,colframe=gray!35!black,fonttitle=\bfseries}{ex}
+
+
+% ----------------------- Index handle -----------------------
 \newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
 \usepackage{color} 
 \usepackage{hyperref}
@@ -43,6 +60,7 @@
 %--- LAZY -----------------------------------------------------------------------------------
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\ps}{\{p_n\}}
+\newcommand{\topo}{\mathcal T}
 
 %---------------------HEADER FOOTER-----------------------------------------------------------
 \pagestyle{fancy}
@@ -80,7 +98,97 @@
 \end{abstract}
 \newpage
 %----------------CH 2---------------------------------------------------------
-\section{Topological Spaces}
+\invisiblesection{Topological Spaces}
+% \vspace*{1cm}
+\begin{center}
+    \title{\textbf{\LARGE \underline{Topological Spaces}}}
+\end{center}
+% \vspace*{2cm}
+\subsection{What is a Topology?}
+\begin{myDef*}{(Topology)}
+    A topology on a set X is a collection $\topo$ of subsets of X having 
+    the following properties:
+        \begin{enumerate}[label=\roman*.]
+            \item $\emptyset$ and X are both in $\topo$
+            \item The union of the elements of any subcollection of
+                  $\topo$ is in $\topo$
+            \item The intersection of the elements of any finite
+                  collection of $\topo$ is in $\topo$
+        \end{enumerate}
+\end{myDef*}
+\noindent
+If a set X satisfies the above three properties we call X a topological 
+space.
+\subsection{Open Sets} 
+\begin{myDef*}{(Open Set)}
+    If X is a topological space with a topology $\topo$, we
+	say that a subset U of X is an open set of X if U belongs to the 
+	collection of $\topo$.
+\end{myDef*}
+The whole idea here is to have this notion of openness be very general,
+the above definition is literally just saying that a set is open if 
+it is a member of $\topo$. YOU choose what is open by placing sets in
+$\topo$, the only catch is that what you decide to declare open must 
+satisfy the requirements for a topology; that is, $\emptyset$ and X are 
+in $\topo$ and $\topo$ is closed under arbitrary union and finite 
+intersection. To tie together the notion of a topological space nicely 
+Munkres has a very nice way of summarizing the concept of a topological
+space using the new vocabulary we have learned.
+
+\subsection{A more Concise Definition for Topological Space's} 
+\begin{myDef*}{(Concise Definition for Topological Space's)}
+    A topological space is a set X together with a collection of subsets
+    of X, called open sets, such that $\emptyset$ and X are both open, and
+    such that the arbitrary union and finite intersection of open sets are open.
+\end{myDef*}
+
+\begin{myExa*}{}
+    \begin{itemize}
+        \item Choose X to be any set, the collection of all subsets of X, i.e., the power set of X denoted 
+              $\mathcal{P} (X)$ is a topology, it is called the discrete topology.\\
+        \item The collection of only X and $\emptyset$ is a topology on X, it is called the indiscrete topology,
+              or more commonly just the trivial topology.
+    \end{itemize}
+\end{myExa*}
+\noindent
+We will now describe some terms for when we compare different topologies.
+\subsection{Fine and Course Topologies} 
+\begin{myDef*}{(Fine and Course Topologies)}
+    Let $\topo$ and $\topo^{'}$ be two topologies on a set X. If $\topo^{'} \supset \topo$, we say that $\topo^{'}$ is 
+    finer than $\topo$. If $\topo^{'}$ properly contains $\topo$, we say that $\topo^{'}$ is strictly finer than $\topo$.
+    One can also say that $\topo$ is courser than $\topo^{'}$, or strictly courser than $\topo^{'}$,in the two respective
+    cases.
+\end{myDef*}
+\subsection*{Comparable Topologies}
+\begin{myDef*}{(Comparable)}
+    We say $\topo$ is comparable to $\topo^{'}$ if either $\topo^{'} \supset \topo$ or $\topo \supset \topo^{'}$. 
+\end{myDef*}
+\noindent
+Note, We can also use the terms
+\begin{itemize}
+    \item ``Weak topology'' when $\topo^{'} \supset \topo$.
+    \item ``Strong topology'' when $\topo \supset \topo^{'}$. 
+\end{itemize}
+\noindent
+There tends to be some miscommunication as to the correct definitions of weak and strong topologies. I use the above
+associations because that is how I learned them, some people define weak/strong in the opposite way, so for future reading
+make sure you understand how one is defining there weak/strong topologies. Similarly, we can say that a topology is ``Larger''
+or ``Weaker'' with the above definitions/caution being the same.
+\noindent
+To finish this portion of chapter 2 I'll provide a rather straightforward example that illustrates the above ideas.
+\begin{myExa*}{}
+    Let
+    \begin{center}
+        $X=\{a,b,c\},\quad \topo_1 =\{\emptyset,\ X\},\quad  \topo_2 =\mathcal{P} (X)$
+    \end{center}
+    \begin{itemize}
+        \item It's simple to see that $\topo_1$ is just the trivial topology, we can say that $\topo_1$ is the ``Coarsest'' topology.
+        \item We call $\topo_2$ the ``Finest'' topology.
+        \item Lastly note that $\topo_1 \subset \topo_2$, thus $\topo_1$ is coarser than $\topo_2$ and
+            $\topo_2$ is finer than $\topo_1$.
+    \end{itemize}
+    
+\end{myExa*}
 \newpage
 \section{Basis for a Topology}
 \newpage
